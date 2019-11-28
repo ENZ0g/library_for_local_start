@@ -39,14 +39,13 @@
 
 `git clone https://github.com/ENZ0g/library_for_local_start.git`  
   
-После того, как скопируется репозиторий, выполните установку
+После того, как скопируется репозиторий, 
+перейдите в папку `library_for_local_start` и выполните установку
 необходимых модулей:  
 
 `pip install -r requirements.txt`
 
 Затем выполните миграции и заполните базу данных:  
-
-`python manage.py makemigrations`  
 
 `python manage.py migrate`  
 

@@ -50,7 +50,9 @@ class Book(models.Model):
                                blank=True
                                )
     img = models.ImageField(upload_to='book-cover/',
-                            default='blank-book-cover.png')
+                            default=os.path.join(settings.BASE_DIR,
+                                                 'media',
+                                                 'blank-book-cover.png'))
 
     def __str__(self):
         return f'{self.author.full_name} - {self.title}\n'
