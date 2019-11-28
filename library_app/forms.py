@@ -6,7 +6,9 @@ class BookForm(forms.ModelForm):
 
     ISBN = forms.CharField(max_length=13,
                            min_length=10,
-                           label='Номер ISBN')
+                           label='Номер ISBN',
+                           error_messages={'min_length': 'ISBN должен содержать 10 или 13 цифр!',
+                                           'max_length': 'ISBN должен содержать 10 или 13 цифр!'})
     title = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}),
                             label='Название книги')
     description = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control',
