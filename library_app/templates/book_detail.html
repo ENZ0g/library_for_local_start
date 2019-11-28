@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ object.title }}{% endblock %}
+
+{% block main %}
+<div class="row">
+<div class="col col-5 text-center">
+    <img src="{{ object.img.url }}">
+    <p class="helptext">Чтобы заменить изображение, выберите изображение и нажмите Заменить</p>
+    <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Заменить" class="btn btn-outline-primary">
+    </form>
+</div>
+    <div class="col">
+<table class="table table-striped table-sm">
+    <tr><h1>{{ object.title }}</h1></tr>
+    <tr><h3>{{ object.author }}</h3></tr>
+
+    <tr>
+        <td>ISBN</td>
+        <td>{{ object.ISBN }}</td>
+    </tr>
+    <tr>
+        <td>Год издания</td>
+        <td>{{ object.year_release }}</td>
+    </tr>
+    <tr>
+        <td>Количество</td>
+        <td>{{ object.copy_count }}</td>
+    </tr>
+    <tr>
+        <td>Цена</td>
+        <td>{{ object.price }}</td>
+    </tr>
+    <tr>
+        <td>Издательство</td>
+        <td>{{ object.redaction }}</td>
+    </tr>
+    <tr>
+        <td>Описание</td>
+        <td>{{ object.description }}</td>
+    </tr>
+    <tr>
+        <td>Читатели</td>
+        <td>{{ object.reader|default_if_none:"Никто не читает" }}</td>
+    </tr>
+</table>
+        </div>
+</div>
+{% endblock %}
